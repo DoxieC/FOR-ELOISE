@@ -3,53 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heart Shape</title>
-    <style>
-        body {
-            margin: 0;
-            background-color: black;
-        }
-        canvas {
-            display: block;
-        }
-    </style>
+    <title>Heart Shape Animation</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <canvas id="heartCanvas"></canvas>
-
-    <script>
-        const canvas = document.getElementById("heartCanvas");
-        const ctx = canvas.getContext("2d");
-
-        // Set canvas size to the full window size
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        function hearta(k) {
-            return 15 * Math.sin(k) ** 3;
-        }
-
-        function heartb(k) {
-            return 12 * Math.cos(k) - 5 * Math.cos(2 * k) - 2 * Math.cos(3 * k) - Math.cos(4 * k);
-        }
-
-        function drawHeart() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
-            ctx.translate(canvas.width / 2, canvas.height / 2); // Move origin to the center
-
-            ctx.beginPath();
-            for (let i = 0; i < 10000; i++) {
-                const x = hearta(i / 100) * 20;
-                const y = heartb(i / 100) * 20;
-                ctx.lineTo(x, y);
-            }
-
-            ctx.strokeStyle = "#f73487";
-            ctx.lineWidth = 2;
-            ctx.stroke();
-        }
-
-        drawHeart();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
